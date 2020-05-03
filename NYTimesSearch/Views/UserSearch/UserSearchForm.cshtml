@@ -1,0 +1,25 @@
+﻿@model NYTimesSearch.ViewModels.SearchResults
+@{
+    ViewBag.Title = "UserSearchForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>News search</h2>
+
+@using (Html.BeginForm("SearchNews", "UserSearch"))
+{
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.SearchItem)
+        @Html.TextBoxFor(m => m.SearchItem, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SearchItem)
+    </div>
+    Model.Page = "1";
+
+    <button type="submit" class="btn btn-primary">Search</button>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

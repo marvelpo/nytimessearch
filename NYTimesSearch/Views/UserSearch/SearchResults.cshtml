@@ -1,0 +1,16 @@
+﻿@model NYTimesSearch.ViewModels.SearchResults
+@{
+    ViewBag.Title = "SearchResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Results</h2>
+
+<ul>
+    @foreach (var searchItem in Model.SearchResultsList)
+    {
+        <li><a href=@searchItem.ArticleLink>@searchItem.ArticleName</a></li>
+    }
+</ul>
+
+@Html.ActionLink("Go Back", "Index", "UserSearch")
