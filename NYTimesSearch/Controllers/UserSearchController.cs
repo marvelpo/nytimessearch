@@ -29,10 +29,8 @@ namespace NYTimesSearch.Controllers
         }
 
         public async Task<ActionResult> SearchNews(SearchResults itemToSearch)
-        {
-            //SearchResults result = await SearchNYT(itemToSearch.SearchItem);
-            SearchResults res = await nytService.SearchNYT(itemToSearch.SearchItem, itemToSearch.Page);
-            // return Content("Searching item: " + res);
+        {            
+            SearchResults res = await nytService.SearchNYT(itemToSearch.SearchItem, itemToSearch.Page);          
             return View("SearchResults", res);
         }
 

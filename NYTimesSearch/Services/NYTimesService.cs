@@ -32,10 +32,6 @@ namespace NYTimesSearch.Services
                 builder.Query = query.ToString();
                 string url = builder.ToString();
 
-                //HttpResponseMessage response = await client.GetAsync(url);
-                //response.EnsureSuccessStatusCode();
-                //string responseBody = await response.Content.ReadAsStringAsync();
-                // Above three lines can be replaced with new helper method below
                 string responseBody = await client.GetStringAsync(url);
 
                 dynamic jsonResponse = JsonConvert.DeserializeObject(responseBody);
